@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* =========================================================
+     PALETA MODULAR - "ENTRE LO DIVINO"
+     Modifica aquí los colores de toda la aplicación.
+     ========================================================= */
+
+  /* Fondo general: Rosa palo suave, sobrio y sofisticado */
+  --background: #F9F9F9;
+
+  /* Color del texto principal y texto secundario/atenuado */
+  --foreground: #221C1D;
+  --muted: #7D7073;
+
+  /* Tarjetas (permanecen blancas para contraste perfecto) */
+  --card: #FFFFFF;
+  --card-foreground: #221C1D;
+
+  /* Bordes y separadores sutiles */
+  --border: #EADBDE;
+
+  /* Botón principal de acción (WhatsApp, añadir, etc.) */
+  --primary: #1F1A1B;
+  --primary-foreground: #FFFFFF;
+  --primary-hover: #3A3234;
+
+  /* Etiquetas sutiles ("Más vendido", "Destacado") */
+  --badge-bg: rgba(255, 255, 255, 0.92);
+  --badge-text: #221C1D;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
 }

@@ -51,64 +51,64 @@ export default function Storefront() {
   // --- VISTA DETALLE DE PRODUCTO ---
   if (selectedProduct) {
     return (
-      <main className="min-h-screen bg-[#fafafa] text-gray-900 font-sans selection:bg-gray-200">
+      <main className="min-h-screen bg-background text-foreground font-sans">
         <div className="max-w-6xl mx-auto px-6 py-12 md:py-20">
 
           {/* Header & Botón de Volver */}
-          <header className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end border-b border-gray-200 pb-6 gap-6">
+          <header className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end border-b border-border pb-6 gap-6">
             <div>
-              <h1 className="text-3xl md:text-5xl font-light tracking-tight text-gray-800">
+              <h1 className="text-3xl md:text-5xl font-light tracking-tight text-foreground">
                 Entre lo Divino
               </h1>
-              <p className="text-gray-500 mt-3 text-sm md:text-base uppercase tracking-widest font-medium">
+              <p className="text-muted mt-3 text-sm md:text-base uppercase tracking-widest font-medium">
                 Detalle del Producto
               </p>
             </div>
             <button
               onClick={() => setSelectedProduct(null)}
-              className="text-sm font-medium uppercase tracking-wider text-gray-600 hover:text-gray-900 transition flex items-center gap-2 border border-gray-200 px-4 py-2 rounded-full bg-white hover:bg-gray-50"
+              className="text-sm font-medium uppercase tracking-wider text-foreground hover:opacity-80 transition flex items-center gap-2 border border-border px-5 py-2.5 rounded-full bg-card shadow-xs cursor-pointer"
             >
               ← Volver a Vitrina
             </button>
           </header>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            {/* Lupa de Imagen */}
-            <div className="flex flex-col space-y-6">
-              <div className="bg-white p-4 shadow-sm rounded-xl border border-gray-100 overflow-hidden group">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            {/* Lupa de Imagen en Tarjeta Blanca */}
+            <div className="flex flex-col space-y-4">
+              <div className="rounded-2xl overflow-hidden group">
                 <InnerImageZoom
                   src={selectedProduct.image}
                   zoomSrc={selectedProduct.zoomImage}
                   zoomType="hover"
                   zoomPreload={true}
-                  className="w-full h-auto object-cover rounded-lg"
+                  className="w-full h-auto object-cover rounded-xl"
                   hideHint={true}
                 />
               </div>
-              <p className="text-sm text-gray-500 text-center italic">
-                Pasa el mouse o toca la imagen para ver el detalle.
+              <p className="text-sm text-muted text-center italic">
+                Pasa el mouse o toca la imagen para ver el detalle de la tela.
               </p>
             </div>
 
-            {/* Información y Video */}
-            <div className="flex flex-col space-y-8">
+            {/* Información y Video en Tarjeta Blanca */}
+            <div className="bg-card p-6 sm:p-8 rounded-2xl border border-border shadow-xs flex flex-col space-y-8">
               <div>
-                <p className="text-xs uppercase tracking-widest text-gray-400 mb-2">{selectedProduct.category}</p>
-                <h2 className="text-3xl font-normal text-gray-800 mb-2">{selectedProduct.name}</h2>
-                <p className="text-2xl text-gray-600 font-light">{selectedProduct.price.toFixed(2)} <span className="text-sm text-gray-400">Bs</span></p>
+                <p className="text-xs uppercase tracking-widest text-muted mb-2 font-medium">{selectedProduct.category}</p>
+                <h2 className="text-3xl font-normal text-foreground mb-2">{selectedProduct.name}</h2>
+                <p className="text-2xl text-foreground font-light">{selectedProduct.price.toFixed(2)} <span className="text-sm text-muted">Bs</span></p>
 
-                <div className="mt-6 prose prose-sm text-gray-600">
+                <div className="mt-6 text-sm text-muted leading-relaxed">
                   <p>{selectedProduct.description}</p>
                 </div>
 
-                <button className="mt-8 w-full md:w-auto px-10 py-4 bg-gray-900 text-white text-sm uppercase tracking-widest font-semibold hover:bg-gray-800 transition-colors rounded">
+                <button className="mt-8 w-full md:w-auto px-10 py-4 bg-primary text-primary-foreground text-sm uppercase tracking-widest font-semibold hover:bg-primary-hover transition-colors rounded-xl shadow-xs cursor-pointer">
                   Comprar por WhatsApp
                 </button>
               </div>
 
-              <div className="pt-8 border-t border-gray-200">
-                <h3 className="text-lg font-medium text-gray-800 mb-4">Experiencia en movimiento</h3>
-                <div className="relative pt-[56.25%] rounded-xl overflow-hidden shadow-sm border border-gray-100 bg-gray-100">
+              <div className="pt-8 border-t border-border">
+                <h3 className="text-lg font-medium text-foreground mb-4">Experiencia en movimiento</h3>
+                <div className="relative pt-[56.25%] rounded-xl overflow-hidden shadow-xs border border-border bg-neutral-100">
                   {isMounted && (
                     <ReactPlayer
                       src={selectedProduct.videoUrl}
@@ -121,7 +121,7 @@ export default function Storefront() {
                     />
                   )}
                 </div>
-                <p className="text-sm text-gray-500 mt-4 text-center italic">
+                <p className="text-sm text-muted mt-4 text-center italic">
                   Video demostrativo integrado.
                 </p>
               </div>
@@ -134,20 +134,20 @@ export default function Storefront() {
 
   // --- VISTA DE VITRINA (GRID) ---
   return (
-    <main className="min-h-screen bg-[#fafafa] text-gray-900 font-sans">
+    <main className="min-h-screen bg-background text-foreground font-sans">
       <div className="max-w-7xl mx-auto px-6 py-12 md:py-20">
 
         <header className="mb-12 text-center">
-          <h1 className="text-4xl md:text-5xl font-light tracking-tight text-gray-800">
+          <h1 className="text-4xl md:text-5xl font-light tracking-tight text-foreground">
             Entre lo Divino
           </h1>
-          <p className="text-gray-500 mt-4 text-sm md:text-base uppercase tracking-widest font-medium">
+          <p className="text-muted mt-4 text-sm md:text-base uppercase tracking-widest font-medium">
             Nueva Colección
           </p>
         </header>
 
         {/* Filters and Sorting */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-10 border-b border-gray-200 pb-4 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-10 border-b border-border pb-4 gap-6">
 
           {/* Categories Tab */}
           <div className="flex space-x-6 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-hide">
@@ -155,9 +155,9 @@ export default function Storefront() {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`text-sm tracking-wide transition-colors whitespace-nowrap ${activeCategory === category
-                  ? "text-gray-900 font-semibold border-b-2 border-gray-900 pb-1"
-                  : "text-gray-500 hover:text-gray-900 pb-1"
+                className={`text-sm tracking-wide transition-colors whitespace-nowrap cursor-pointer ${activeCategory === category
+                  ? "text-foreground font-semibold border-b-2 border-primary pb-1"
+                  : "text-muted hover:text-foreground pb-1"
                   }`}
               >
                 {category}
@@ -167,11 +167,11 @@ export default function Storefront() {
 
           {/* Sort Dropdown */}
           <div className="flex items-center gap-3 self-end md:self-auto">
-            <label className="text-sm text-gray-500">Ordenar por:</label>
+            <label className="text-sm text-muted">Ordenar por:</label>
             <select
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}
-              className="text-sm bg-transparent border-none text-gray-800 font-medium focus:ring-0 cursor-pointer outline-none"
+              className="text-sm bg-card border border-border rounded-lg px-3 py-1.5 text-foreground font-medium focus:ring-1 focus:ring-primary cursor-pointer outline-none shadow-xs"
             >
               <option value="default">Recomendados</option>
               <option value="asc">Precio: Menor a Mayor</option>
@@ -181,15 +181,15 @@ export default function Storefront() {
 
         </div>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
+        {/* Product Grid - Tarjetas Blancas resaltadas sobre fondo Rosa Palo */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="group cursor-pointer flex flex-col"
+              className="group cursor-pointer flex flex-col rounded-2xl transition-transform duration-300 hover:-translate-y-1"
               onClick={() => setSelectedProduct(product)}
             >
-              <div className="relative aspect-[3/4] overflow-hidden bg-gray-100 rounded-lg mb-4">
+              <div className="relative aspect-[3/4] overflow-hidden bg-[#F3E8EA] rounded-xl mb-3.5">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -198,7 +198,7 @@ export default function Storefront() {
 
                 {/* Tags Sutiles */}
                 {product.tag && (
-                  <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 text-xs uppercase tracking-wider font-semibold text-gray-800 rounded">
+                  <span className="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-md px-2.5 py-1 text-[10px] sm:text-xs uppercase tracking-wider font-semibold text-foreground rounded-md shadow-xs">
                     {product.tag}
                   </span>
                 )}
@@ -207,19 +207,19 @@ export default function Storefront() {
                 <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               </div>
 
-              <div className="flex justify-between items-start mt-2">
-                <div className="flex flex-col">
-                  <h3 className="text-base text-gray-900 font-medium">{product.name}</h3>
-                  <span className="text-xs text-gray-400 mt-1 uppercase tracking-wider">{product.category}</span>
+              <div className="flex justify-between items-start mt-auto pt-1">
+                <div className="flex flex-col pr-2">
+                  <h3 className="text-sm sm:text-base text-foreground font-medium leading-snug">{product.name}</h3>
+                  <span className="text-xs text-muted mt-1 uppercase tracking-wider">{product.category}</span>
                 </div>
-                <span className="text-base text-gray-800">{product.price.toFixed(2)} Bs</span>
+                <span className="text-sm sm:text-base text-foreground font-semibold whitespace-nowrap">{product.price.toFixed(2)} Bs</span>
               </div>
             </div>
           ))}
         </div>
 
         {filteredProducts.length === 0 && (
-          <div className="py-20 text-center text-gray-500">
+          <div className="py-20 text-center text-muted">
             No se encontraron productos en esta categoría.
           </div>
         )}
